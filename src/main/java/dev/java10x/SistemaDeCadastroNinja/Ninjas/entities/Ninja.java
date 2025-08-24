@@ -2,10 +2,14 @@ package dev.java10x.SistemaDeCadastroNinja.Ninjas.entities;
 
 import dev.java10x.SistemaDeCadastroNinja.MIssoes.entities.Missao;
 import jakarta.persistence.*;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tb_cadastro")
 public class Ninja {
 
