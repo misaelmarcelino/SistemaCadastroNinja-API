@@ -1,6 +1,6 @@
 package dev.java10x.SistemaDeCadastroNinja.MIssoes.entities;
 
-import dev.java10x.SistemaDeCadastroNinja.Ninjas.entities.Ninja;
+import dev.java10x.SistemaDeCadastroNinja.Ninjas.entities.NinjaModel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "tb_missoes")
-public class Missao {
+public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class Missao {
 
     //@OneToMany uma missão pode ter varios ninjas
     @OneToMany(mappedBy = "missoes")
-    private List<Ninja> ninjas;
+    private List<NinjaModel> ninjas;
 
 }
 
