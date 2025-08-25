@@ -3,14 +3,8 @@ package dev.java10x.SistemaDeCadastroNinja.Ninjas.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninja")
 public class NinjaController {
-
-    @GetMapping("/boasvindas")
-    public String boasVindas(){
-        return "Essa é a minha rota inicial";
-    }
-
 
     // Adicionar Ninja - POST CREATE
     @PostMapping("/adicionar")

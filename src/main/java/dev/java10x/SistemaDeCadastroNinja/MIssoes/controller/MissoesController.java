@@ -8,22 +8,16 @@ public class MissoesController {
 
     // Adicionar novas missoes
     @PostMapping("/criar")
-    public String criarMissao(){
-        return  "Missao Criada com sucesso";
-    }
+    public String criarMissao(){ return  "Missao Criada com sucesso"; }
 
     // Listar as missoes
     @GetMapping
-    public String listarMissao(){
-        return  "Missao Listadas com sucesso";
-    }
+    public String listarMissao(){ return  "Missao Listadas com sucesso"; }
     // Alterar Missao por ID
     @PutMapping("/alterar/{id}")
-    public String alterarMissao(){
-        return  "Missao Alterada com sucesso";
-    }
+    public String alterarMissao(){ return  "Missao Alterada com sucesso"; }
     // Deletar missoes
     @DeleteMapping("/deletar/{id}")
-    public String deletarMissao(){
-        return  "Missao deletada com sucesso";
-    }
+    public String deletarMissao(){ return  "Missao deletada com sucesso"; }
+
+}
