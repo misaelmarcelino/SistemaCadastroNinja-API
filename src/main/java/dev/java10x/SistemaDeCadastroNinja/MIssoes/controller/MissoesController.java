@@ -6,6 +6,7 @@ import dev.java10x.SistemaDeCadastroNinja.MIssoes.service.MissoesService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/missoes")
@@ -25,6 +26,11 @@ public class MissoesController {
     @GetMapping
     public List<MissoesModel> listarMissoes(){
         return  missoesService.listarMissoes();
+    }
+
+    @GetMapping("/listar/{id}")
+    public Optional<MissoesModel> listarMissoesPorId(@PathVariable Long id){
+        return missoesService.listarMissoesPorId(id);
     }
     // Alterar Missao por ID
     @PutMapping("/alterar/{id}")
