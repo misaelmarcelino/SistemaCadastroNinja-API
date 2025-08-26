@@ -16,13 +16,31 @@ public class MissoesService {
         this.missoesRepository = missoesRepository;
     }
 
+    // Criar novas missoes
+
+    public MissoesModel criarMissoes(MissoesModel missoes){
+        return missoesRepository.save(missoes);
+    }
+
     // Listar Missoes
     public List<MissoesModel> listarMissoes(){
         return missoesRepository.findAll();
     }
 
     // Listar Missoes Por Id
-    public Optional<MissoesModel> listarMissoesPorId(Long id){
-        return missoesRepository.findById(id);
+    public MissoesModel listarMissoesPorId(Long Id){
+        Optional<MissoesModel> missoesPorId = missoesRepository.findById(Id);
+        return missoesPorId.orElse(null);
     }
+
+    // Deletar Mmissoes por Id
+    public MissoesModel deleteMissoesPorId(Long Id){
+        Optional<MissoesModel> missoesPorId = missoesRepository.findById(Id);
+
+        if(missoesPorId.isPresent()){
+            missoesRepository.deleteById(Id);
+        }
+        return missoesPorId.orElse(null);
+    }
+
 }

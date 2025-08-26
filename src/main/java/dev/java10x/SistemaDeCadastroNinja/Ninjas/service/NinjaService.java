@@ -18,6 +18,12 @@ public class NinjaService {
         this.ninjaRepository = ninjaRepository;
     }
 
+    // Criar um novo ninja
+
+    public NinjaModel criarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+    }
+
     // Listar todos os meus ninjas
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
@@ -25,9 +31,24 @@ public class NinjaService {
 
     // Listar Ninjas por Id
 
-    public Optional<NinjaModel> listarNinjaPorId(Long ninja) {
-        return ninjaRepository.findById(ninja);
+    public NinjaModel listarNinjaPorId(Long id){
+        Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
+
+        return ninjaPorId.orElse(null);
+
     }
+
+    // Deletar ninja por Id
+
+    public NinjaModel deletarNinjaPorId(Long id){
+        Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
+        if(ninjaPorId.isPresent()){
+            ninjaRepository.deleteById(id);
+        }
+
+        return ninjaPorId.orElse(null);
+    }
+
 
 
 }
