@@ -33,14 +33,13 @@ public class MissoesService {
         return missoesPorId.orElse(null);
     }
 
-    // Deletar Mmissoes por Id
-    public MissoesModel deleteMissoesPorId(Long Id){
-        Optional<MissoesModel> missoesPorId = missoesRepository.findById(Id);
+    // Atualiazar
 
-        if(missoesPorId.isPresent()){
-            missoesRepository.deleteById(Id);
-        }
-        return missoesPorId.orElse(null);
+
+    // Deletar Mmissoes por Id
+    public void deleteMissoesPorId(Long Id){
+        missoesRepository.deleteById(Id);
+
     }
 
 }

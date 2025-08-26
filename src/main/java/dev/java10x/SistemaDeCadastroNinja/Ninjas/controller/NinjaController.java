@@ -22,24 +22,28 @@ public class NinjaController {
     public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
         return ninjaService.criarNinja(ninja);
     }
+
     // Mostra todos os ninjas - GET READ
     @GetMapping("/listar")
-    public List<NinjaModel> listarNinjas()
-    {
+    public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
     }
+
     // Mostrar todos os Ninjas - GET READ
     @GetMapping("/listar/{id}")
     public NinjaModel listarNinjaPorId(@PathVariable Long id){
         return ninjaService.listarNinjaPorId(id);
     }
-    // Atyalizar dados do Ninja - PUT/PATH - UPDATE
-    @PutMapping("/alterar")
-    public String alterarNinja(){ return "Ninjas atualizado"; }
-    // Excluir Ninja - DELETE
 
+    // Atyalizar dados do Ninja - PUT/PATH - UPDATE
+    @PutMapping("/alterar/{id}")
+    public NinjaModel atualizarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+        return ninjaService.atualizarNinjaPorI(id, ninjaAtualizado);
+    }
+
+    // Excluir Ninja - DELETE
     @DeleteMapping("/deletar/{id}")
-    public NinjaModel deletarNinjaPorId(@PathVariable Long id){
-        return ninjaService.deletarNinjaPorId(id);
+    public void deletarNinjaPorId(@PathVariable Long id){
+        ninjaService.deletarNinjaPorId(id);
     }
 }
